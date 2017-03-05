@@ -4,9 +4,13 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-es2016": "^6.22.0",
     "gh-pages": "^0.12.0",
     "node-uuid": "^1.4.7",
-    "react-scripts": "0.9.0"
+    "react-redux": "^5.0.3",
+    "react-scripts": "0.9.0",
+    "redux": "^3.6.0"
   },
   "dependencies": {
     "react": "^15.4.2",

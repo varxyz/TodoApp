@@ -1,14 +1,17 @@
 
-.App {
+/*.App {
+  text-align: center;
+}*/
+.logos {
   text-align: center;
 }
-
 .App-logo {
   animation: App-logo-spin infinite 10s linear;
   height: 80px;
-  display: block;
-  margin: auto;
-  margin-top: 20px;
+  display: inline-block;
+  text-align: center;
+  margin: 20px;
+  margin-bottom: 0px
 }
 
 .App-header {
@@ -22,6 +25,15 @@
   font-size: large;
 }
 
+/*.todo-label > div>label {
+  color:red !important;
+}
+.todo-label > div>div>div>svg {
+  fill:red !important;
+}*/
+div.logos>div>button {
+  display: none !important;
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -30,20 +42,23 @@
 .form-check {
   margin:20px 0;
 }
-
+body {
+  background-color: #f8f8f8 !important;
+}
 .container {
   width: 400px;
+  /*background-color: #f8f8f8 !important;*/
   margin:auto;
   margin-top: 20px;
   border-radius: 4px !important;
-
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 5px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 5px -6px rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.117647) 0px 1px 2px, rgba(0, 0, 0, 0.117647) 0px -1px 3px 1px!important;
 }
 .btn {
   margin: 10px 0;
 }
-.tlist {
-  min-height: 250px
-}
+/*.tlist {
+
+}*/
 .form-control {
   margin-bottom: 20px
 }
@@ -375,12 +390,15 @@ input[type="radio"] .styled:checked + label::after {
   color: #fff;
 }
 
-
-body, html,button, input, select, textarea,label {
+.container__message {
+  color:#674172;
+}
+body, html,button, input, select, textarea,label, .container__message {
   font-family:'whitney htf', -apple-system, BlinkMacSystemFont, "Segoe UI", 'Helvetica Neue', Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"  !important;
 }
 label,input {
   font-size:19px;
+  font-weight:500;
 }
 
 /*

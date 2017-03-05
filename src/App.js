@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import logord from './logord.svg';
 import './App.css';
 import SearchForm from './Components/SearchForm';
 import TodoList from './Components/TodoList';
@@ -9,11 +10,10 @@ import AppBar from 'material-ui/AppBar';
 import {Card} from 'material-ui/Card';
 import todoAPI from './Components/todoAPI';
 
-
-const AppBarExampleIcon = () => (
+//menu bar
+const _AppBar = () => (
   <AppBar
     title="React | Redux Todo App"
-    iconClassNameRight="muidocs-icon-navigation-expand-more"
     style={{backgroundColor:'#C6007E', fontFamily:'whitney htf, arial, sans-serif'}}
   />
 );
@@ -62,72 +62,20 @@ class App extends Component {
       })
     }
   }
-
-   handleClick = (id) => {
-        let todos = this.state.todos;
-        let index = todos.map((el) => el.id).indexOf(id);
-        todos.splice(index, 1);
-        this.setState({
-          todos: todos
-        })
-  }
-  handleSearch = (showCompleted, searchText) => {
-    this.setState({
-      showCompleted: showCompleted,
-      searchText: searchText
-    })
-  }
-  filterTodos = (todos, showCompleted, searchText) => {
-    let filteredTodos = todos;
-    //filter by showCompleted
-    filteredTodos = filteredTodos.filter((item) => {
-      return !item.completed || showCompleted;
-    });
-    //filter by searchText
-    filteredTodos = filteredTodos.filter((item) => {
-      const text = item.text.toLowerCase();
-      searchText = searchText.toLowerCase();
-      return searchText.length === 0 || text.indexOf(searchText) > -1;
-    })
-    //sort todos with non-completed first
-    filteredTodos.sort((a, b) => {
-      if(!a.completed && b.completed) {
-        return -1;
-      } else if(a.completed && !b.completed) {
-        return 1;
-      } else {
-        return 0
-      }
-    })
-    return filteredTodos;
-  }
-  handleToggle =(id)=> {
-    let updatedTodos = this.state.todos.map((todo) => {
-      if (todo.id === id)
-        todo.completed = !todo.completed
-      return todo;
-    });
-    this.setState({
-      todos: updatedTodos
-    })
-  }
   render() {
-    const {todos, showCompleted, searchText} = this.state;
-    let filteredTodos = this.filterTodos(todos, showCompleted, searchText);
-    let count =this.state.todos.length;
-    let f2 = this.state.todos.filter((item) => {
-      return item.completed === false
-    })
     return (
       <div>
-        <AppBarExampleIcon />
-        <div>
+        <div className='logos'>
+          <_AppBar titleStyle={{display:'inline-block'}} />
+        </div>
+        <div className='logos'>
             <img src={logo} className="App-logo" alt="logo" />
+            <img src={logord} className="App-logo" alt="logo-redux"/>
         </div>
         <Card className='container'>
-          <AddTodo handleSubmit={this.handleAdd}/>
-          <TodoList className='tlist' todos={filteredTodos} onClick={this.handleClick} onToggle={this.handleToggle}/>
-          <SearchForm count={count} todos={f2} showCompleted={showCompleted} onSearch={this.handleSearch} className='form'/>
+          <AddTodo />
+          <TodoList className='tlist'/>
+          <SearchForm className='form'/>
         </Card>
       </div>
     );
